@@ -25,7 +25,7 @@ def index():
     response.raise_for_status()
 
     quote = response.json()
-    print(quote["location"]["name"])
+    # print(quote["location"]["name"])
 
 
 
