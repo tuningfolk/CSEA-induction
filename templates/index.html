@@ -1,5 +1,25 @@
 {% extends "layout.html" %}
 
+{% if is_day %}
+    <style>
+        body {
+            background-image: url('/static/day_wp.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-size: 100% 100%;
+        }
+    </style>
+    {% else %}
+    <style>
+        body {
+            background-image: url('/static/night_wp.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-size: 100% 100%;
+        }
+    </style>
+{% endif %}
+
 {% block main %}
 
 Main block, welcome!
