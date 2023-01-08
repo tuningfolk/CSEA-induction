@@ -12,12 +12,12 @@ app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True  
 
 # Make sure API key is set
-if not os.environ.get("API_KEY"):
-    raise RuntimeError("API_KEY not set")
+# if not os.environ.get("API_KEY"):
+#     raise RuntimeError("API_KEY not set")
 
 @app.route('/')
 def index():
-    api_key = os.environ.get("API_KEY")
+    # api_key = os.environ.get("API_KEY")
     symbol = "INDIA"
     url = f"https://api.weatherapi.com/v1/current.json?key='8e67619d356c4ac7ad861838230801'&q={urllib.parse.quote(symbol)}&aqi=yes"
 
