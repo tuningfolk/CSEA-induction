@@ -19,7 +19,7 @@ if not os.environ.get("API_KEY"):
 def index():
     api_key = os.environ.get("API_KEY")
     symbol = "INDIA"
-    url = f"https://api.weatherapi.com/v1/current.json?key="8e67619d356c4ac7ad861838230801"&q={urllib.parse.quote(symbol)}&aqi=yes"
+    url = f"https://api.weatherapi.com/v1/current.json?key='8e67619d356c4ac7ad861838230801'&q={urllib.parse.quote(symbol)}&aqi=yes"
 
     response = requests.get(url)
     response.raise_for_status()
