@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
+
     <head>
+        
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Homepage</title>
+
+        {% block head %} {% endblock %}
+
+        <style>
+            body {
+                background-image: url('static/night_wp.jpeg');
+                background-repeat: no-repeat;
+                background-attachment: fixed; 
+                background-size: 100% 100%;
+            }
+        </style>
+        
     </head>
-    <main>
-        {% block main %} {% endblock %}
+
+    <body>
+
+        <main>
+            {% block main %} {% endblock %}
         </main>
-    <footer>
-        {% block footer %}{% endblock %}
-    </footer>
+        <footer>
+            {% block footer %}{% endblock %}
+        </footer>
+
+    </body>
+        
 </html>

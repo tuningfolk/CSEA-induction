@@ -18,15 +18,16 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 @app.route('/')
 def index():
     # api_key = os.environ.get("API_KEY")
-    symbol = "INDIA"
+    symbol = "ENGLAND"
     url = f"https://api.weatherapi.com/v1/current.json?key=8e67619d356c4ac7ad861838230801&q={urllib.parse.quote(symbol)}&aqi=yes"
 
     response = requests.get(url)
     response.raise_for_status()
 
     quote = response.json()
-    # print(quote["location"]["name"])
+    is_day = int(quote["current"]["is_day"])
+    print(quote["current"]["is_day"])
 
 
 
-    return render_template("index.html")    
+    return render_template("index.html", is_day = is_day)    
