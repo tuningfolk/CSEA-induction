@@ -21,6 +21,16 @@
         background-size: 100% 100%;
     }
 </style>
+<style>
+    .center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+</style>
 
 {% endif %}
 
@@ -115,7 +125,10 @@
             <option value= "{{ countries[country] }}" >{{ countries[country] }}</option>
         {% endfor %}
     </select>
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <div class="center">
+        <button class="btn btn-primary " type="submit">Submit</button>
+
+    </div>
 </form>
 
 {% endblock %}
