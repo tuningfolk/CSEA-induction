@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import urllib.request
 
 import os
@@ -18,19 +18,32 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # if not os.environ.get("API_KEY"):
 #     raise RuntimeError("API_KEY not set")
 
-@app.route('/')
+@app.route('/', methods = ["GET", "POST"])
 def index():
-    # api_key = os.environ.get("API_KEY")
-    symbol = "PARIS"
-    url = f"https://api.weatherapi.com/v1/current.json?key=8e67619d356c4ac7ad861838230801&q={urllib.parse.quote(symbol)}&aqi=yes"
+    if(request.method == "POST"):
+        country_name = request.form.get("country_name")
+        symbol = country_name
+        url = f"https://api.weatherapi.com/v1/current.json?key=8e67619d356c4ac7ad861838230801&q={urllib.parse.quote(symbol)}&aqi=yes"
 
-    response = requests.get(url)
-    response.raise_for_status()
+        response = requests.get(url)
+        response.raise_for_status()
 
-    quote = response.json()
-    is_day = int(quote["current"]["is_day"])
-    print(quote)
+        quote = response.json()
+
+            
+    else:
+        # api_key = os.environ.get("API_KEY")
+        symbol = "NEW DELHI"
+        url = f"https://api.weatherapi.com/v1/current.json?key=8e67619d356c4ac7ad861838230801&q={urllib.parse.quote(symbol)}&aqi=yes"
+
+        response = requests.get(url)
+        response.raise_for_status()
+
+        quote = response.json()
+        is_day = int(quote["current"]["is_day"])
+        print(quote)
 
 
 
-    return render_template("index.html", is_day = is_day, countries = country)    
+        return render_template("index.html", is_day = is_day, countries = country) 
+    
