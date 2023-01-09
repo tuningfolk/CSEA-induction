@@ -18,7 +18,7 @@ The footer references the https://www.weatherapi.com/ website.
 HTML  
 CSS  
 JAVASCRIPT  
-FLASK
+PYTHON-FLASK
 
 ## API used
 https://www.weatherapi.com/
