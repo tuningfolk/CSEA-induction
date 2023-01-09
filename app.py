@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import urllib.request
 
 import os
@@ -53,6 +53,8 @@ def index():
         response.raise_for_status()
 
         quote = response.json()
+        if not quote:
+            return redirect("/")
         is_day = int(quote["current"]["is_day"])
         temp_c = quote["current"]["temp_c"]
         temp_f = quote["current"]["temp_f"]
