@@ -8,9 +8,9 @@ A simple weather app that displays the weather details of any country given by t
 Each field represents a particular weather parameter
 The background wallpaper of the website depends upon whether the it's day or night at the given location.
 
-The following drop down menu displays the countries.
+The following drop-down menu displays the countries.
 
-An invalid input through the drop down is handled by redirecting the user to the same page.
+An invalid input through the drop-down menu is handled by redirecting the user to the same page.
 
 The footer references the https://www.weatherapi.com/ website.
 
