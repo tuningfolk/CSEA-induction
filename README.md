@@ -1,7 +1,7 @@
 # A simple weather app
 ## Website available at: https://alisahad.pythonanywhere.com/
 
-## info
+## The website
 A simple weather app that displays the weather details of any country given by the user.
 
 ## UI/UX
@@ -15,9 +15,9 @@ An invalid input through the drop-down menu is handled by redirecting the user t
 The footer references the https://www.weatherapi.com/ website.
 
 ## Technologies used
-HTML
-CSS
-JAVASCRIPT
+HTML  
+CSS  
+JAVASCRIPT  
 FLASK
 
 ## API used
