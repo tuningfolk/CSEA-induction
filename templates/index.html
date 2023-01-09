@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 {% block head %}
+
+{% if is_day %}
 <style>
     
         body {
@@ -9,6 +11,19 @@
             background-size: 100% 100%;
         }
 </style>
+{% else %}
+<style>
+    
+    body {
+        background-image: url('/static/night_wp.jpeg');
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: 100% 100%;
+    }
+</style>
+
+{% endif %}
+
 {% endblock %}
 
 
@@ -29,37 +44,37 @@
       
       <div class="col-sm-12">
         <div class="well">
-          <h4>Dashboard</h4>
-          <p>Some text..</p>
+          <h4>{{ region }}</h4>
+          <p>{{ location_country }}</p>
         </div>
         <div class="row">
           <div class="col-sm-3">
             <div class="well">
-              <h4>Users</h4>
-              <p>1 Million</p> 
+              <h4>Temperature:</h4>
+              <p>{{ temp_c }}  &#8451</p> 
             </div>
           </div>
           <div class="col-sm-3">
             <div class="well">
-              <h4>Pages</h4>
-              <p>100 Million</p> 
+              <h4>Wind speed</h4>
+              <p>{{ wind_kph }} Kph</p> 
             </div>
           </div>
           <div class="col-sm-3">
             <div class="well">
-              <h4>Sessions</h4>
-              <p>10 Million</p> 
+              <h4>Wind Degree</h4>
+              <p>{{ wind_degree }}</p> 
             </div>
           </div>
           <div class="col-sm-3">
             <div class="well">
-              <h4>Bounce</h4>
-              <p>30%</p> 
+              <h4>Wind direction</h4>
+              <p>{{ wind_dir }} </p> 
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-4">
+          <!-- <div class="col-sm-4">
             <div class="well">
               <p>Text</p> 
               <p>Text</p> 
@@ -79,17 +94,22 @@
               <p>Text</p> 
               <p>Text</p> 
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="row">
           <div class="col-sm-8">
             <div class="well">
-              <p>Text</p> 
+              <p>Weather condition: {{ condition }}</p> 
             </div>
           </div>
           <div class="col-sm-4">
             <div class="well">
-              <p>Text</p> 
+                {% if is_day %}
+                    <p> Day</p>
+                {% else %}
+                    <p>Night</p>
+
+                {% endif %} 
             </div>
           </div>
         </div>
@@ -98,9 +118,9 @@
   </div>
 
 <form action = "/" method="post">
-    <select id="country_name">
+    <select name="country_name">
         {% for country in countries %}
-            <option>{{ countries[country] }}</option>
+            <option value= "{{ countries[country] }}" >{{ countries[country] }}</option>
         {% endfor %}
     </select>
     <button type="submit">Submit</button>

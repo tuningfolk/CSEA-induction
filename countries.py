@@ -249,5 +249,3 @@ country={
     'ZM':'Zambia',
     'ZW':'Zimbabwe'
 }
-
-print(country)
