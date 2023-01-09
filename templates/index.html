@@ -17,7 +17,7 @@
 <form action = "/" method="post">
     <select id="country">
         {% for country in countries %}
-            <option>{{ country.name }}</option>
+            <option>{{ countries[country] }}</option>
         {% endfor %}
     </select>
     <button type="submit">Submit</button>

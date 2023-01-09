@@ -5,8 +5,8 @@ import os
 import requests
 import urllib.parse
 
-import pycountry
-countries = list(pycountry.countries)
+import countries
+from countries import country
 
 #Configuring application
 app = Flask(__name__)
@@ -33,4 +33,4 @@ def index():
 
 
 
-    return render_template("index.html", is_day = is_day, countries = countries)    
+    return render_template("index.html", is_day = is_day, countries = country)    
