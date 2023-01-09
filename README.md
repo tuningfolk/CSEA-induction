@@ -10,6 +10,8 @@ The background wallpaper of the website depends upon whether the it's day or nig
 
 The following drop down menu displays the countries.
 
+An invalid input through the drop down is handled by redirecting the user to the same page.
+
 The footer references the https://www.weatherapi.com/ website.
 
 ## Technologies used
