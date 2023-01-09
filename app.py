@@ -5,6 +5,9 @@ import os
 import requests
 import urllib.parse
 
+import pycountry
+countries = list(pycountry.countries)
+
 #Configuring application
 app = Flask(__name__)
 
@@ -18,7 +21,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 @app.route('/')
 def index():
     # api_key = os.environ.get("API_KEY")
-    symbol = "ENGLAND"
+    symbol = "PARIS"
     url = f"https://api.weatherapi.com/v1/current.json?key=8e67619d356c4ac7ad861838230801&q={urllib.parse.quote(symbol)}&aqi=yes"
 
     response = requests.get(url)
@@ -26,8 +29,8 @@ def index():
 
     quote = response.json()
     is_day = int(quote["current"]["is_day"])
-    print(quote["current"]["is_day"])
+    print(quote)
 
 
 
-    return render_template("index.html", is_day = is_day)    
+    return render_template("index.html", is_day = is_day, countries = countries)    
